@@ -1,12 +1,6 @@
 <template>
-  <div class="tag"
-  :class="{'align-left': align === 'left', 'align-center': align === 'center'}"
-  >
-    <div
-      v-for="(tag) in tags"
-      :key="tag"
-      
-    >
+  <div class="tag">
+    <div class="tag_item" v-for="tag in tags" :key="tag">
       {{ tag.text }}
       <v-icon v-if="tag.icon" class="tag-icon">{{ tag.icon }}</v-icon>
     </div>
@@ -16,7 +10,6 @@
 <script>
 export default {
   props: {
-    align: String,
     tags: Array,
   },
 };
@@ -26,14 +19,11 @@ export default {
 .tag {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 70px;
 
-  width: 800px;
-  height: 100px;
-  margin: auto;
-
-  &-icon {
-    margin-left: 6px;
+  &_item {
+    padding: 0 5px;
   }
 }
 </style>

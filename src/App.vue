@@ -1,11 +1,13 @@
 <template>
   <div class="tags-list">
-    <!-- <v-btn style="margin-top: 15px;" @click="addTag">Добавить тег</v-btn> -->
+    <div class="tags-list_main">
+      <TagsList :tags="tags" style="justify-content: flex-end" />
+      <TagsList :tags="tags" />
+      <TagsList :tags="tags" style="justify-content: flex-end; width: 50%" />
+      <TagsList :tags="tags" style="justify-content: flex-start; width: 50%" />
+    </div>
 
-    <TagsList :tags="tags" :align="left"/>
-    <TagsList :tags="tags" :align="center"/>
-    <TagsList :tags="tags" :align="left"/>
-
+    <!-- <button class="tags-list_btn-add" @click="addTag">Добавить тег</button> -->
   </div>
 </template>
 
@@ -20,13 +22,10 @@ export default {
   data() {
     return {
       tags: [
-        { text: "v-btn", icon: "mdi-watch"},
-        { text: "текст2", icon: "mdi-check" },
-        { text: "текст1", icon: "mdi-email" },
-        { text: "текст1"},
-        // { text: "текст2", icon: "mdi-check" },
-        // { text: "текст1" },
-        // { text: "текст2", icon: "mdi-check" },
+        { text: "v-btn", icon: "mdi-watch" },
+        { text: "v-checkbox" },
+        { text: "v-menu", icon: "mdi-email" },
+        { text: "v-btn", icon: "mdi-check" },
       ],
     };
   },
@@ -38,10 +37,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .tags-list {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  text-align: center;
-  height: 100%;
+  height: 90vh;
+
+  &_main {
+    padding: 20px;
+  }
 }
 </style>
