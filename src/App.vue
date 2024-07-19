@@ -1,10 +1,11 @@
 <template>
-  <div id="app">
-    <div style="width: 800px; height: 200px;">
-      <TagsList :tags="tags" />
-    </div>
+  <div class="tags-list">
+    <!-- <v-btn style="margin-top: 15px;" @click="addTag">Добавить тег</v-btn> -->
 
-    <v-btn @click="addTag">Добавить тег</v-btn>
+    <TagsList :tags="tags" :align="left"/>
+    <TagsList :tags="tags" :align="center"/>
+    <TagsList :tags="tags" :align="left"/>
+
   </div>
 </template>
 
@@ -19,12 +20,13 @@ export default {
   data() {
     return {
       tags: [
-        { text: "v-btn" },
+        { text: "v-btn", icon: "mdi-watch"},
         { text: "текст2", icon: "mdi-check" },
-        { text: "текст1", icon: "mdi-check" },
-        { text: "текст2", icon: "mdi-check" },
-        { text: "текст1" },
-        { text: "текст2", icon: "mdi-check" },
+        { text: "текст1", icon: "mdi-email" },
+        { text: "текст1"},
+        // { text: "текст2", icon: "mdi-check" },
+        // { text: "текст1" },
+        // { text: "текст2", icon: "mdi-check" },
       ],
     };
   },
@@ -32,15 +34,12 @@ export default {
     addTag() {
       this.tags.push({ text: "Новый тег", icon: "mdi-plus" });
     },
-    removeTag(index) {
-      this.tags.splice(index, 1);
-    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-#app {
+.tags-list {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   text-align: center;
   height: 100%;
